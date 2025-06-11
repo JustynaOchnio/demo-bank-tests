@@ -7,7 +7,7 @@ test.describe('Pulpit tests', () => {
     const userId = 'testerLO';
     const userPassword = '12345678';
 
-    test('quick payment with correct data', async ({ page }) => {
+    test.only('quick payment with correct data', async ({ page }) => {
         //Arrange
         const receiverId = '2';
         const transferAmount = '150';
@@ -28,7 +28,7 @@ test.describe('Pulpit tests', () => {
 
         //Assert
         await expect(page.getByTestId('message-text')).toHaveText(
-            `Przelew wykonany! Chuck Demobankowy - ${transferAmount},00PLN - ${transerTitle}`)
+            `Przelew wykonany! BDDChuck Demobankowy - ${transferAmount},00PLN - ${transerTitle}`)
     });
 
     test('successful mobile top-up', async ({ page }) => {

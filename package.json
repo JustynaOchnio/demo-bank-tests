@@ -9,9 +9,7 @@
   "description": "",
   "devDependencies": {
     "@playwright/test": "^1.52.0",
-    "@types/node": "^22.15.29"
-  },
-  "dependencies": {
-    "prettier": "^3.5.3"
+    "@types/node": "^22.15.29",
+    "prettier": "3.5.3"
   }
 }
