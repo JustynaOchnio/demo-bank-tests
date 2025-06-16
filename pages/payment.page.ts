@@ -20,4 +20,16 @@ export class PaymentPage {
     this.closeButton = this.page.getByTestId('close-button');
     this.sideMenu = new SideMenuComponent(this.page);
   }
+
+  async makeTransfer(
+    transferReceiver: string,
+    transferAccount: string,
+    transferAmount: string,
+  ): Promise<void> {
+    await this.transferReceiver.fill(transferReceiver);
+    await this.transferAccount.fill(transferAccount);
+    await this.transferAmount.fill(transferAmount);
+    await this.proceedButton.click();
+    await this.closeButton.click();
+  }
 }

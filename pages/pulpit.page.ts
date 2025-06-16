@@ -49,4 +49,27 @@ export class PulpitPage {
     this.closeButton = this.page.getByTestId('close-button');
     this.sideMenu = new SideMenuComponent(this.page);
   }
+
+  async executeQuickPayment(
+    receiverId: string,
+    transferAmount: string,
+    transerTitle: string,
+  ): Promise<void> {
+    await this.quickPaymentReceiverSelect.selectOption(receiverId);
+    await this.quickPaymentTransferAmountInput.fill(transferAmount);
+    await this.quickPaymentTransferTitleInput.fill(transerTitle);
+    await this.quickPaymentProceedButton.click();
+    await this.closeButton.click();
+  }
+
+  async executeMobileTopup(
+    receiverNumber: string,
+    transferAmount: string,
+  ): Promise<void> {
+    await this.mobileTopupReceiverSelect.selectOption(receiverNumber);
+    await this.mobileTopupTransferAmountInput.fill(transferAmount);
+    await this.mobileTopupAcceptConditionsCheckbox.check();
+    await this.mobileTopupProceedButton.click();
+    await this.closeButton.click();
+  }
 }
