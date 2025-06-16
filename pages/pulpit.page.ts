@@ -1,4 +1,5 @@
 import { Locator, Page } from '@playwright/test';
+import { SideMenuComponent } from '../components/side-menu.component';
 
 export class PulpitPage {
   messageHeader: Locator;
@@ -15,6 +16,8 @@ export class PulpitPage {
   mobileTopupProceedButton: Locator;
 
   closeButton: Locator;
+
+  sideMenu: SideMenuComponent;
 
   constructor(private page: Page) {
     this.messageHeader = this.page.getByTestId('message-text');
@@ -44,5 +47,6 @@ export class PulpitPage {
       name: 'doładuj telefon',
     });
     this.closeButton = this.page.getByTestId('close-button');
+    this.sideMenu = new SideMenuComponent(this.page);
   }
 }
